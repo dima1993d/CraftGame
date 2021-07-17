@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: aadf3e409e898104e8e65226585773fb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _fightPlace: {instanceID: 0}
+  - _idlePlace: {instanceID: 0}
+  - _worker: {fileID: 919132149155446097, guid: cb58bd685bbf3504e8b2116b125b3755, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
