@@ -8,15 +8,22 @@ public class AI_Mover : MonoBehaviour
 {
     [SerializeField] private Transform _fightPlace;
     [SerializeField] private Transform _idlePlace;
-    private float value;
+    private Rigidbody _rb;
+    private float _lerpValue = 0f;
 
     //[SerializeField] private GameObject _worker;
 
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
-        value += 0.001f;
-        GetComponent<Rigidbody>().transform.position = Vector3.Lerp(_fightPlace.position, _idlePlace.position, value);
+        if (_lerpValue > 1) 
+            return;
 
-        if (value > 1) return;
+        _lerpValue += Time.deltaTime / 4;
+        _rb.transform.position = Vector3.Lerp(_fightPlace.position, _idlePlace.position, _lerpValue);
     }
 }
