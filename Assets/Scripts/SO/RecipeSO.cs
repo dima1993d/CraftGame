@@ -1,8 +1,11 @@
+using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Ore", menuName = "ScriptableObjects/OreScriptableObject", order = 1)]
-public class RecipeSO : ScriptableObject
+[CreateAssetMenu(fileName = "Recipe", menuName = "ScriptableObjects/RecipeScriptableObject", order = 1)]
+public class RecipeSO : SerializedScriptableObject
 {
-    public ItemSlot[,] itemSlots = new ItemSlot[6, 6];
+    [TableMatrix(SquareCells = true)]
+    public IItem[,] recipe = new IItem[6, 6];
+
 }

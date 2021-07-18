@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace UI
 {
+    [System.Serializable]
     public class ItemSlot : MonoBehaviour, IDropHandler
     {
         public RectTransform rectTransform;
