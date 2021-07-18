@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7132b8ad69e5c7049baa00727a8a5800, type: 3}
-  m_Name: Recipe 2
+  m_Name: Planks
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 2fa5204191f74524ba2c2b5b73488bf1, type: 2}
-    - {fileID: 11400000, guid: cec7c46064d04ef4088c95b40348b89e, type: 2}
+    - {fileID: 11400000, guid: cbf8a75c0a4be9e4cbd6bfab3ca04af6, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -25,7 +24,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: recipes
       Entry: 7
-      Data: 0|IItem[,], Assembly-CSharp
+      Data: 0|CraftGame.SO.IItem[,], SO
     - Name: 
       Entry: 12
       Data: 36
@@ -42,14 +41,14 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 10
-      Data: 1
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 6
       Data: 
+    - Name: 
+      Entry: 10
+      Data: 0
     - Name: 
       Entry: 6
       Data: 
@@ -146,3 +145,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  result: {fileID: 11400000, guid: d22421a57a41e484fa4a169cbfc770ed, type: 2}
+  amount: 4

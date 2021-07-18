@@ -1,34 +1,30 @@
 
+using CraftGame.SO;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace CraftGame.UI
 {
-    public class DragAndDrop : MonoBehaviour, IPointerDownHandler//, IBeginDragHandler, IEndDragHandler, IDragHandler
+    [Obsolete]
+    public class DragAndDrop : MonoBehaviour//, IPointerDownHandler//, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
+        /*
         [SerializeField]
         private Canvas canvas;
 
         private RectTransform rectTransform;
         private CanvasGroup canvasGroup;
-        private ItemSlot itemSlot;
-        
+        private IItem item;
+
+
+        public IItemReference currentDragedItem;
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
             canvasGroup = GetComponent<CanvasGroup>();
         }
-
-        internal void SetToSlot(ItemSlot slot)
-        {
-            itemSlot = slot;
-        }
-
-        void Drop()
-        {
-            SetToSlot(itemSlot);
-        }
+        */
         /*
         public void OnBeginDrag(PointerEventData eventData)
         {
@@ -46,13 +42,7 @@ namespace CraftGame.UI
             canvasGroup.blocksRaycasts = true;
         }*/
 
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            if (true)
-            {
-                canvasGroup.blocksRaycasts = false;
-            }
-        }
+        
 
     }
 }

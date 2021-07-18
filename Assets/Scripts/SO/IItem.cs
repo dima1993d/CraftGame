@@ -7,7 +7,6 @@ namespace CraftGame.SO
 {
     public abstract class IItem : ScriptableObject
     {
-        public int number;
         [AssetIcon]
         public Sprite sprite;
     }

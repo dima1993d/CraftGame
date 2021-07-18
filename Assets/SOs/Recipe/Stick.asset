@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7132b8ad69e5c7049baa00727a8a5800, type: 3}
-  m_Name: Recipe
+  m_Name: Stick
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: d22421a57a41e484fa4a169cbfc770ed, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -43,11 +44,11 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: 
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: 
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: 
       Entry: 6
       Data: 
@@ -144,5 +145,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  result: {fileID: 11400000, guid: cec7c46064d04ef4088c95b40348b89e, type: 2}
+  result: {fileID: 11400000, guid: 48a4f874add16834aaa4246ef52bc2a8, type: 2}
   amount: 1

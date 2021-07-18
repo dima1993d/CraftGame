@@ -6,6 +6,7 @@ namespace CraftGame.SO
     public class IItemReference : ScriptableObject
     {
         public IItem item;
+        public int number;
     }
 
 }
