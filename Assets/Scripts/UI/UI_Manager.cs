@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using SaveLoad;
+using CraftGame.SaveLoad;
 using UnityEngine;
 using UnityEngine.UI;
+using CraftGame.SO;
 
-namespace UI
+namespace CraftGame.UI
 {
     public class UI_Manager : MonoBehaviour
     {
@@ -13,6 +14,11 @@ namespace UI
         private SavedData savedData;
         public GameObject ItemPrefab;
         public GameObject Container;
+        public IItem Wood;
+        public IItemReference currentDragedItem;
+
+
+
 
         void Awake()
         {
@@ -22,6 +28,7 @@ namespace UI
                 savedData = new SavedData();
                 inventory = new Inventory();
                 savedData.inventory = inventory;
+                inventory.AddItem(Wood);
             }
             else
             {

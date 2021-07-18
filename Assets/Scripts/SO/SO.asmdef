@@ -1,0 +1,16 @@
+{
+    "name": "SO",
+    "rootNamespace": "",
+    "references": [
+        "GUID:aa8d2aa0bc6b5bb42949ea3cc7f6bc5c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

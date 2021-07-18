@@ -2,20 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CraftGame.SO;
 
-namespace UI
+namespace CraftGame.UI
 {
     [Serializable]
     public class Inventory
     {
-        private List<Item> items;
+        private List<IItem> items;
 
         public Inventory()
         {
-            items = new List<Item>();
+            items = new List<IItem>();
         }
 
-        public void AddItem(Item item)
+        public void AddItem(IItem item)
         {
             if (!items.Contains(item))
             {
@@ -23,7 +24,7 @@ namespace UI
             }
 
         }
-        public List<Item> GetItems()
+        public List<IItem> GetItems()
         {
             return items;
         }

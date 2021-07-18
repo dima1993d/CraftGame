@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SaveLoad
+namespace CraftGame.SaveLoad
 {
     public class SaveLoadSystem 
     {
