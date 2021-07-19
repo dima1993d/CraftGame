@@ -60,6 +60,7 @@ namespace CraftGame.UI
                     {
                         itemSlots[x, y].item = item;
                         itemSlots[x, y].number = amount;
+                        itemSlots[x, y].UpdateItemSlot();
                         return;
                     }
                 }

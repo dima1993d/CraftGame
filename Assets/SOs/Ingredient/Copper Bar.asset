@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c44db720f8796ec4cabbee753e56cdbc, type: 3}
-  m_Name: CopperBar
+  m_Name: Copper Bar
   m_EditorClassIdentifier: 
   number: 0
   sprite: {fileID: 21300000, guid: 6678e2ea8a16839479b616dbd81c05d3, type: 3}

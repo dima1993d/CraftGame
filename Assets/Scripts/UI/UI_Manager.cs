@@ -51,13 +51,13 @@ namespace CraftGame.UI
             else
             {
                 savedData = JsonUtility.FromJson<SavedData>(data);
-                inventory.itemSlots = SetupItemData(inventory.itemSlots, savedData.inventory);
+                inventory.itemSlots = UnpackData(inventory.itemSlots, savedData.inventory);
             }
             DragedItemImage = DraggedItem.GetComponent<Image>();
             DragedItemNumber = DraggedItem.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
 
-        private ItemSlot[,] SetupItemData(ItemSlot[,] itemSlots, ItemData[,] inventory)
+        private ItemSlot[,] UnpackData(ItemSlot[,] itemSlots, ItemData[,] inventory)
         {
             for (int x = 0; x < itemSlots.GetLength(0); x++)
             {
@@ -65,6 +65,7 @@ namespace CraftGame.UI
                 {
                     itemSlots[x, y].item = allItems[inventory[x,y].ItemID];
                     itemSlots[x, y].number = inventory[x,y].number;
+                    itemSlots[x, y].UpdateItemSlot();
                 }
             }
             return itemSlots;
@@ -91,23 +92,24 @@ namespace CraftGame.UI
             temp.inventory = new ItemData[inventory.itemSlots.GetLength(0), inventory.itemSlots.GetLength(1)];
             temp.crafting = new ItemData[crafting.itemSlots.GetLength(0), crafting.itemSlots.GetLength(1)];
 
-
             for (int x = 0; x < inventory.itemSlots.GetLength(0); x++)
             {
                 for (int y = 0; y < inventory.itemSlots.GetLength(1); y++)
                 {
+                    temp.inventory[x, y] = new ItemData();
                     temp.inventory[x,y].ItemID = GetItemID(inventory.itemSlots[x, y]);
+                    temp.inventory[x,y].number = inventory.itemSlots[x, y].number;
                 }
             }
-            
             for (int x = 0; x < crafting.itemSlots.GetLength(0); x++)
             {
                 for (int y = 0; y < crafting.itemSlots.GetLength(1); y++)
                 {
+                    temp.crafting[x, y] = new ItemData();
                     temp.crafting[x,y].ItemID = GetItemID(crafting.itemSlots[x, y]);
+                    temp.crafting[x,y].number = crafting.itemSlots[x, y].number;
                 }
             }
-
             return temp;
         }
 
@@ -134,19 +136,21 @@ namespace CraftGame.UI
             {
                 for (int y = 0; y < inventory.itemSlots.GetLength(1); y++)
                 {
-                    inventory.itemSlots[x, y].transform.GetChild(0).gameObject.SetActive(true);
-                    inventory.itemSlots[x, y].transform.GetChild(0).GetComponent<Image>().sprite = inventory.itemSlots[x, y].item.sprite;
-                    inventory.itemSlots[x, y].transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "" + inventory.itemSlots[x, y].number;
+                    if (inventory.itemSlots[x, y].item != null)
+                    {
+                        inventory.itemSlots[x, y].UpdateItemSlot();
+                    }                   
                 }
             }
         }
     }
-
+    [Serializable]
     public class SavedData
     {
         public ItemData[,] inventory;
         public ItemData[,] crafting;
     }
+    [Serializable]
     public class ItemData
     {
         public int ItemID = 0;
