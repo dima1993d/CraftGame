@@ -1,4 +1,5 @@
 using CraftGame.SO;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,6 +18,15 @@ namespace CraftGame.UI
         public IItemReference currentDragedItem;
         public Image itemIcon;
         public TextMeshProUGUI itemNumberText;
+        public BoolGameAction UpdateUI;
+        public SlotType slotType;
+        public enum SlotType
+        {
+            IItem,
+            ArmourSO,
+            WeaponSO,
+            OreSO
+        }
 
         void Awake()
         {
@@ -24,9 +34,23 @@ namespace CraftGame.UI
             itemIcon = transform.GetChild(0).GetComponent<Image>();
             itemNumberText = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         }
-        public void UpdateItemSlot()
+        public void UpdateItemSlot(IItem item,int number)
         {
-            if (item)
+            UpdateItemSlot(item,number,true);
+        }
+        public void UpdateItemSlot(IItem item,int number,bool TriggerUpdateUI)
+        {
+            if (number <= 0)
+            {
+                this.item = null;
+                this.number = 0;
+            }
+            else
+            {
+                this.item = item;
+                this.number = number;
+            }
+            if (this.item)
             {
                 itemIcon.gameObject.SetActive(true);
                 itemIcon.sprite = item.sprite;
@@ -36,41 +60,60 @@ namespace CraftGame.UI
             {
                 itemIcon.gameObject.SetActive(false);
             }
+            if (TriggerUpdateUI)
+            {
+                UpdateUI?.InvokeAction(true);
+            }
+            
         }
+
+
         public void OnPointerDown(PointerEventData eventData)
         {
+            
+            if (currentDragedItem.item != null && (int)slotType != 0)
+            {
+                string st = SlotType.GetName(typeof(SlotType), slotType);
+                Type t2 = currentDragedItem.item.GetType();
+                if (!t2.ToString().Contains(st))
+                {
+                    Debug.Log("" + st);
+                    Debug.Log("" + t2.ToString());
+                    return;
+                }
+            }
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-                Debug.Log("Left Mouse Button Clicked on: ", gameObject);
+                //Debug.Log("Left Mouse Button Clicked on: ", gameObject);
                 if (currentDragedItem.item == null && item != null) //Get Item
                 {
                     currentDragedItem.item = item;
                     currentDragedItem.number = number;
-                    item = null;
-                    number = 0;
-                    UpdateItemSlot();
+                    UpdateItemSlot(null,0);
                     return;
                 }
                 if (currentDragedItem.item != null && item == null) //Set Item
                 {
-                    item = currentDragedItem.item;
-                    number = currentDragedItem.number;
+                    UpdateItemSlot(currentDragedItem.item, currentDragedItem.number);
                     currentDragedItem.item = null;
                     currentDragedItem.number = 0;
-                    UpdateItemSlot();
+                    return;
+                }
+                if (currentDragedItem.item != null && item != null && currentDragedItem.item == item) //Add Items
+                {
+                    UpdateItemSlot(item, number + currentDragedItem.number);
+                    currentDragedItem.item = null;
+                    currentDragedItem.number = 0;
                     return;
                 }
                 if (currentDragedItem.item != null && item != null && currentDragedItem.item != item) //Swap Items
                 {
                     IItem tempItem = item;
                     int tempNumber = number;
-
-                    item = currentDragedItem.item;
-                    number = currentDragedItem.number;
+                    UpdateItemSlot(currentDragedItem.item, currentDragedItem.number);
 
                     currentDragedItem.item = tempItem;
                     currentDragedItem.number = tempNumber;
-                    UpdateItemSlot();
                     return;
                 }
                 
@@ -79,30 +122,27 @@ namespace CraftGame.UI
         
             if (eventData.button == PointerEventData.InputButton.Right)
             {
-                Debug.Log("Right Mouse Button Clicked on: ", gameObject);
+                //Debug.Log("Right Mouse Button Clicked on: ", gameObject);
                 if (currentDragedItem.item != null)
                 {
                     if (item == null)
                     {
-                        item = currentDragedItem.item;
-                        number = 1;
+                        UpdateItemSlot(currentDragedItem.item,1);
                         currentDragedItem.number--;
                         if (currentDragedItem.number == 0)
                         {
                             currentDragedItem.item = null;
                         }
-                        UpdateItemSlot();
                         return;
                     }
                     if (item == currentDragedItem.item)
                     {
-                        number++;
                         currentDragedItem.number--;
                         if (currentDragedItem.number == 0)
                         {
                             currentDragedItem.item = null;
                         }
-                        UpdateItemSlot();
+                        UpdateItemSlot(item,number + 1);
                         return;
                     }
                 }
@@ -111,21 +151,30 @@ namespace CraftGame.UI
                     if (item != null)
                     {
                         currentDragedItem.item = item;
+                        if (number == 1)
+                        {
+                            currentDragedItem.number = number;
+                            UpdateItemSlot(null,0);
+                            return;
+                        }
+                        int temp = number;
                         if (number % 2 == 1)
                         {
-                            number = (number - 1) / 2;
+                            temp = (number - 1) / 2;
                             currentDragedItem.number = (number + 1) / 2;
                         }
                         else
                         {
-                            number = currentDragedItem.number = number / 2;
+                            currentDragedItem.number = number / 2;
+                            temp = currentDragedItem.number;
                         }
-                        UpdateItemSlot();
+                        UpdateItemSlot(item, temp);
                         return;
                     }
                 }
                 
             }
+            
         }
     }
 }

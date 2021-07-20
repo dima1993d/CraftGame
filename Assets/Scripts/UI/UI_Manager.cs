@@ -7,13 +7,15 @@ using UnityEngine.UI;
 using CraftGame.SO;
 using System;
 using UnityEngine.InputSystem;
+using Sirenix.OdinInspector;
 
 namespace CraftGame.UI
 {
     public class UI_Manager : MonoBehaviour
     {
         public Inventory inventory;
-        private SavedData savedData = new SavedData();
+        [SerializeField]
+        public SavedData savedData = new SavedData();
         public GameObject ItemPrefab;
         public IItem Wood;
         public IItemReference currentDragedItem;
@@ -41,7 +43,7 @@ namespace CraftGame.UI
             
         }
 
-        void Awake()
+        void Start()
         {
             string data = SaveLoadSystem.Load();
             if (data == null)
@@ -51,24 +53,31 @@ namespace CraftGame.UI
             else
             {
                 savedData = JsonUtility.FromJson<SavedData>(data);
-                inventory.itemSlots = UnpackData(inventory.itemSlots, savedData.inventory);
+                UnpackData(crafting.itemSlots, inventory.itemSlots, savedData);
             }
             DragedItemImage = DraggedItem.GetComponent<Image>();
             DragedItemNumber = DraggedItem.GetChild(0).GetComponent<TextMeshProUGUI>();
+
+            RefreshInventory();
         }
 
-        private ItemSlot[,] UnpackData(ItemSlot[,] itemSlots, ItemData[,] inventory)
+        private ItemSlot[,] UnpackData(ItemSlot[,] craftingSlots, ItemSlot[,] inventorySlots, SavedData data)
         {
-            for (int x = 0; x < itemSlots.GetLength(0); x++)
+            for (int x = 0; x < craftingSlots.GetLength(0); x++)
             {
-                for (int y = 0; y < itemSlots.GetLength(1); y++)
+                for (int y = 0; y < craftingSlots.GetLength(1); y++)
                 {
-                    itemSlots[x, y].item = allItems[inventory[x,y].ItemID];
-                    itemSlots[x, y].number = inventory[x,y].number;
-                    itemSlots[x, y].UpdateItemSlot();
+                    craftingSlots[x, y].UpdateItemSlot(allItems[data.crafting[x].craftinglist[y].ItemID], data.crafting[x].craftinglist[y].number);
                 }
             }
-            return itemSlots;
+            for (int x = 0; x < inventorySlots.GetLength(0); x++)
+            {
+                for (int y = 0; y < inventorySlots.GetLength(1); y++)
+                {
+                    inventorySlots[x, y].UpdateItemSlot(allItems[data.inventory[x].inventorylist[y].ItemID], data.inventory[x].inventorylist[y].number);
+                }
+            }
+            return craftingSlots;
         }
 
         private void OnApplicationQuit()
@@ -80,6 +89,7 @@ namespace CraftGame.UI
             if (pauseStatus)
                 Save();
         }
+        [Button]
         private void Save()
         {
             savedData = SetupSavedData();
@@ -89,25 +99,25 @@ namespace CraftGame.UI
         private SavedData SetupSavedData()
         {
             SavedData temp = new SavedData();
-            temp.inventory = new ItemData[inventory.itemSlots.GetLength(0), inventory.itemSlots.GetLength(1)];
-            temp.crafting = new ItemData[crafting.itemSlots.GetLength(0), crafting.itemSlots.GetLength(1)];
 
             for (int x = 0; x < inventory.itemSlots.GetLength(0); x++)
             {
+                temp.inventory.Add(new ItemDataList());
                 for (int y = 0; y < inventory.itemSlots.GetLength(1); y++)
                 {
-                    temp.inventory[x, y] = new ItemData();
-                    temp.inventory[x,y].ItemID = GetItemID(inventory.itemSlots[x, y]);
-                    temp.inventory[x,y].number = inventory.itemSlots[x, y].number;
+                    temp.inventory[x].inventorylist.Add(new ItemData());
+                    temp.inventory[x].inventorylist[y].ItemID = GetItemID(inventory.itemSlots[x, y]);
+                    temp.inventory[x].inventorylist[y].number = inventory.itemSlots[x, y].number;
                 }
             }
             for (int x = 0; x < crafting.itemSlots.GetLength(0); x++)
             {
+                temp.crafting.Add(new ItemDataList());
                 for (int y = 0; y < crafting.itemSlots.GetLength(1); y++)
                 {
-                    temp.crafting[x, y] = new ItemData();
-                    temp.crafting[x,y].ItemID = GetItemID(crafting.itemSlots[x, y]);
-                    temp.crafting[x,y].number = crafting.itemSlots[x, y].number;
+                    temp.crafting[x].craftinglist.Add(new ItemData());
+                    temp.crafting[x].craftinglist[y].ItemID = GetItemID(crafting.itemSlots[x, y]);
+                    temp.crafting[x].craftinglist[y].number = crafting.itemSlots[x, y].number;
                 }
             }
             return temp;
@@ -125,11 +135,6 @@ namespace CraftGame.UI
             return 0;
         }
 
-        private void Start()
-        {
-            RefreshInventory();
-        }
-
         private void RefreshInventory()
         {
             for (int x = 0; x < inventory.itemSlots.GetLength(0); x++)
@@ -138,7 +143,7 @@ namespace CraftGame.UI
                 {
                     if (inventory.itemSlots[x, y].item != null)
                     {
-                        inventory.itemSlots[x, y].UpdateItemSlot();
+                        inventory.itemSlots[x, y].UpdateItemSlot(inventory.itemSlots[x, y].item, inventory.itemSlots[x, y].number);
                     }                   
                 }
             }
@@ -147,14 +152,20 @@ namespace CraftGame.UI
     [Serializable]
     public class SavedData
     {
-        public ItemData[,] inventory;
-        public ItemData[,] crafting;
+        public List<ItemDataList> inventory = new List<ItemDataList>();
+        public List<ItemDataList> crafting = new List<ItemDataList>();
     }
     [Serializable]
     public class ItemData
     {
         public int ItemID = 0;
         public int number = 0;
+    }
+    [Serializable]
+    public class ItemDataList
+    {
+        public List<ItemData> inventorylist = new List<ItemData>();
+        public List<ItemData> craftinglist = new List<ItemData>();
     }
 }
 
