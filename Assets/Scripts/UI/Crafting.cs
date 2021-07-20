@@ -20,23 +20,20 @@ namespace CraftGame.UI
 
         public List<RecipeSO> recipes;
 
-        
-
-        /*
-        [ShowInInspector, DoNotDrawAsReference]
-        [TableMatrix(DrawElementMethod = "DrawColoredEnumElement", SquareCells = true)]
-        public IItem[,] CraftingWindow = new IItem[6, 6];
-        public IItem result;
-
-        [BoxGroup("ItemSlot table")]
-        [TableMatrix(SquareCells = true)]
-        public int[,] itemNumbers = new int[6, 6];
-        public int resultNumber;
-        */
-        //public int amount = 1;
-
+        public void Crafted()
+        {
+            for (int x = 0; x < itemSlots.GetLength(0); x++)
+            {
+                for (int y = 0; y < itemSlots.GetLength(1); y++)
+                {
+                    itemSlots[x, y].UpdateItemSlot(itemSlots[x, y].item, itemSlots[x, y].number - 1, false);
+                }
+            }
+            Check();
+        }
         public void Check()
         {
+            //Debug.Log("Check");
             bool same = false;
             int index = 0;
             IItem[,] CraftingWindow = GetCurrentItems();
@@ -72,8 +69,7 @@ namespace CraftGame.UI
 
             if (same)
             {
-                resultSlot.item = recipes[index].result;
-                resultSlot.number = recipes[index].amount;
+                resultSlot.UpdateItemSlot(recipes[index].result, recipes[index].amount,false);
             }
             if (!same)
             {
@@ -84,7 +80,7 @@ namespace CraftGame.UI
 
         private int[] GetSmallestIndexs(IItem[,] craftingWindow)
         {
-            int smallestX = 0, smallestY = 0;
+            int smallestX = craftingWindow.GetLength(0), smallestY = craftingWindow.GetLength(1);
             for (int x = 0; x < craftingWindow.GetLength(0); x++)
             {
                 for (int y = 0; y < craftingWindow.GetLength(1); y++)
@@ -109,8 +105,7 @@ namespace CraftGame.UI
 
         private void ClearResultSlot()
         {
-            resultSlot.item = null;
-            resultSlot.number = 0;
+            resultSlot.UpdateItemSlot(null, 0, false);
         }
 
         private bool IsEmpty(IItem[,] craftingWindow)
