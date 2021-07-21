@@ -10,20 +10,33 @@ public class InventoryOfNPC : MonoBehaviour
     public void SpawnWeapon(IItem item)
     {
         WeaponSO weapon = (WeaponSO)item;
-        SpawnItem(weapon.index, weapon.prefab);
+        if (weapon && weapon.prefab)
+        {
+            SpawnItem(weapon.index, weapon.prefab, weapon.pos, weapon.rot, weapon.scale);
+        }
+        
     }
     public void SpawnArmour(IItem item)
     {
         ArmourSO armour = (ArmourSO)item;
-        SpawnItem(armour.index, armour.prefab);
+        if (armour && armour.prefab)
+        {
+            SpawnItem(armour.index, armour.prefab, armour.pos, armour.rot, armour.scale);
+        }
+        
     }
-    public void SpawnItem(int boneIndex, GameObject prefab)
+    public void SpawnItem(int boneIndex, GameObject prefab, Vector3 pos, Vector3 rot, Vector3 scale)
     {
         if (items[boneIndex])
         {
             Destroy(items[boneIndex]);
         }
-        items[boneIndex] = Instantiate(prefab,bones[boneIndex]);
+        items[boneIndex] = Instantiate(prefab, bones[boneIndex]);
+
+        items[boneIndex].transform.localScale = scale;
+        items[boneIndex].transform.localPosition = pos;
+        items[boneIndex].transform.localEulerAngles = rot;
+
     }
 
     

@@ -18,12 +18,12 @@ public class FrontDesk : MonoBehaviour
                 if (Types.Equals(itemSlots[i].item.GetType(),typeof(WeaponSO)))
                 {
                     WeaponSO weapon = (WeaponSO)itemSlots[i].item;
-                    currentNPC.SpawnItem(i, weapon.prefab);
+                    //currentNPC.SpawnItem(i, weapon.prefab);
                 }
                 if (Types.Equals(itemSlots[i].item.GetType(), typeof(ArmourSO)))
                 {
                     ArmourSO armour = (ArmourSO)itemSlots[i].item;
-                    currentNPC.SpawnItem(i, armour.prefab);
+                    //currentNPC.SpawnItem(i, armour.prefab);
                 }
             }
             
