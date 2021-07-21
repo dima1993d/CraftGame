@@ -3,7 +3,7 @@ using Sirenix.Utilities;
 using CraftGame.SO;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Recipe", menuName = "ScriptableObjects/RecipeScriptableObject", order = 1)]
+[CreateAssetMenu(fileName = "Recipe", menuName = "ScriptableObjects/RecipeSO", order = 1)]
 public class RecipeSO : SerializedScriptableObject
 {
 

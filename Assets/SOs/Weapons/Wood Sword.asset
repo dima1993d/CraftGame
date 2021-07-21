@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6bf0e1249629af4aabe1c90106182ea, type: 3}
-  m_Name: Chest Iron
+  m_Script: {fileID: 11500000, guid: d40b17d724dc39649a1747520758e348, type: 3}
+  m_Name: Wood Sword
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 12270d55c24093c45a2a53c6d8efaa55, type: 3}
-  points: 16
-  prefab: {fileID: 1019218939699201180, guid: 9d716e44c54ad44458f7eddff1a78513, type: 3}
-  index: 1
+  sprite: {fileID: 21300000, guid: da420e72ac9132c49ad4c8b9f2d0d15e, type: 3}
+  points: 2
+  prefab: {fileID: 3433211174579748143, guid: 6cc44211c7712d948aa19d618ef1bd2d, type: 3}
+  index: 4

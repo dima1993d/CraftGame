@@ -11,12 +11,4 @@ namespace CraftGame.SO
         public Sprite sprite;
     }
 
-    public interface IBurnable
-    {
-
-    }
-    public interface IMeltable
-    {
-
-    }
 }
