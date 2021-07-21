@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf7db05d259ffb47b2b158a2e462d2a, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  current: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+  current: {r: 1, g: 0.863, b: 0, a: 1}
   colors:
   - {r: 0, g: 0.122, b: 0.247, a: 1}
   - {r: 0, g: 0.455, b: 0.851, a: 1}
@@ -32,3 +32,4 @@ MonoBehaviour:
   - {r: 0.867, g: 0.867, b: 0.867, a: 1}
   - {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   - {r: 0.522, g: 0.078, b: 0.294, a: 1}
+  - {r: 0.90588236, g: 0.7411765, b: 0.5686275, a: 1}
