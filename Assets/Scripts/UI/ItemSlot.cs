@@ -18,14 +18,19 @@ namespace CraftGame.UI
         public IItemReference currentDragedItem;
         public Image itemIcon;
         public TextMeshProUGUI itemNumberText;
-        public BoolGameAction UpdateUI;
+        public IItemGameAction UpdateUI;
         public SlotType slotType;
         public enum SlotType
         {
-            IItem,
-            ArmourSO,
-            WeaponSO,
-            OreSO
+            Item,
+            Helmet,
+            Chest,
+            Leggins,
+            Boots,
+            Sword,
+            Shield,
+            Ore,
+            Fuel
         }
 
         void Awake()
@@ -62,7 +67,7 @@ namespace CraftGame.UI
             }
             if (TriggerUpdateUI)
             {
-                UpdateUI?.InvokeAction(true);
+                UpdateUI?.InvokeAction(this.item);
             }
             
         }

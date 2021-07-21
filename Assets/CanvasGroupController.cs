@@ -3,6 +3,7 @@ using UnityEngine;
 public class CanvasGroupController : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
+    public bool visible = false;
     private void Awake()
     {
         if (!canvasGroup)
@@ -10,7 +11,11 @@ public class CanvasGroupController : MonoBehaviour
             canvasGroup = GetComponent<CanvasGroup>();
         }
     }
-
+    public void SetVisible()
+    {
+        visible = !visible;
+        SetVisible(visible);
+    }
     public void SetVisible(bool var)
     {
         if (var)

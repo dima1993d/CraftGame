@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "New IntGameAction", menuName = "IntGameAction", order = 50)]
+[CreateAssetMenu(fileName = "New IItemGameAction", menuName = "IItemGameAction", order = 50)]
 public class IItemGameAction : GameAction<IItem>
 {
 
