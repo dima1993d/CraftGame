@@ -9,6 +9,8 @@ public class InventoryOfNPC : MonoBehaviour
     public ArmourSO[] armours = new ArmourSO[4];
     public WeaponSO[] weapons = new WeaponSO[2];
     public int strength = 0;
+    public int currentTimeInTheDungeon = 0;
+    public bool inDungeon = false;
     public void SpawnWeapon(IItem item)
     {
         WeaponSO weapon = (WeaponSO)item;

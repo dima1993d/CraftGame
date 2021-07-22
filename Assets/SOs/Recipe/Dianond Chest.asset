@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7132b8ad69e5c7049baa00727a8a5800, type: 3}
-  m_Name: Iron Chest
+  m_Name: Dianond Chest
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 8068f392356c5bd45b18a098d2c35cb0, type: 2}
-    - {fileID: 11400000, guid: 7e2b743b72775ab4c8002d8ec1b3bb3f, type: 2}
+    - {fileID: 11400000, guid: c735563495eee734498f137980e77916, type: 2}
+    - {fileID: 11400000, guid: fc78ac5c67f146243ad12fb839bb520a, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
