@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d40b17d724dc39649a1747520758e348, type: 3}
-  m_Name: Wood Sword
+  m_Name: Copper Sword
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: da420e72ac9132c49ad4c8b9f2d0d15e, type: 3}
   pos: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}
-  points: 3
-  prefab: {fileID: 3433211174579748143, guid: 6cc44211c7712d948aa19d618ef1bd2d, type: 3}
+  points: 9
+  prefab: {fileID: 3891548729294223961, guid: 3bbe385160442264188f67056bb12f4d, type: 3}
   index: 4
