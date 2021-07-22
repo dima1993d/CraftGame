@@ -5,13 +5,18 @@ using UnityEngine;
 public class InventoryOfNPC : MonoBehaviour
 {
     public List<Transform> bones = new List<Transform>();
-    public GameObject[] items = new GameObject[6];
-
+    public GameObject[] itemPrefabInstances = new GameObject[6];
+    public ArmourSO[] armours = new ArmourSO[4];
+    public WeaponSO[] weapons = new WeaponSO[2];
+    public int strength = 0;
+    public int currentTimeInTheDungeon = 0;
+    public bool inDungeon = false;
     public void SpawnWeapon(IItem item)
     {
         WeaponSO weapon = (WeaponSO)item;
         if (weapon && weapon.prefab)
         {
+            weapons[weapon.index] = weapon;
             SpawnItem(weapon.index, weapon.prefab, weapon.pos, weapon.rot, weapon.scale);
         }
         
@@ -21,23 +26,42 @@ public class InventoryOfNPC : MonoBehaviour
         ArmourSO armour = (ArmourSO)item;
         if (armour && armour.prefab)
         {
+            armours[armour.index] = armour;
             SpawnItem(armour.index, armour.prefab, armour.pos, armour.rot, armour.scale);
         }
         
     }
     public void SpawnItem(int boneIndex, GameObject prefab, Vector3 pos, Vector3 rot, Vector3 scale)
     {
-        if (items[boneIndex])
+        if (itemPrefabInstances[boneIndex])
         {
-            Destroy(items[boneIndex]);
+            Destroy(itemPrefabInstances[boneIndex]);
         }
-        items[boneIndex] = Instantiate(prefab, bones[boneIndex]);
+        itemPrefabInstances[boneIndex] = Instantiate(prefab, bones[boneIndex]);
 
-        items[boneIndex].transform.localScale = scale;
-        items[boneIndex].transform.localPosition = pos;
-        items[boneIndex].transform.localEulerAngles = rot;
-
+        itemPrefabInstances[boneIndex].transform.localScale = scale;
+        itemPrefabInstances[boneIndex].transform.localPosition = pos;
+        itemPrefabInstances[boneIndex].transform.localEulerAngles = rot;
+        UpdateStrength();
     }
-
+    void UpdateStrength()
+    {
+        strength = 0;
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (weapons[i])
+            {
+                strength += weapons[i].points;
+            }
+        }
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (armours[i])
+            {
+                strength += armours[i].points;
+            }
+        }
+        
+    }
     
 }
