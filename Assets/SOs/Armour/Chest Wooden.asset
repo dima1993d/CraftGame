@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2345856d5b07dc646bb9dc0430495d33, type: 3}
-  m_Name: Helmet Iron
+  m_Script: {fileID: 11500000, guid: e6bf0e1249629af4aabe1c90106182ea, type: 3}
+  m_Name: Chest Wooden
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: ac0531ff9ec7f3845a0413abc94ebdfa, type: 3}
-  pos: {x: 0, y: 0, z: 0}
+  sprite: {fileID: 21300000, guid: 12270d55c24093c45a2a53c6d8efaa55, type: 3}
+  pos: {x: 0, y: -0.00831, z: 0}
   rot: {x: 0, y: 180, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}
-  points: 10
-  prefab: {fileID: 7528663603908497198, guid: 1eb0f078187831b4486d4803016159a1, type: 3}
-  index: 0
+  points: 13
+  prefab: {fileID: 1458920512616925077, guid: 29a23127129aa01429e322707db39539, type: 3}
+  index: 1
