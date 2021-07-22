@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7132b8ad69e5c7049baa00727a8a5800, type: 3}
-  m_Name: Wood Chest
+  m_Name: Wood Boots
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -32,32 +32,11 @@ MonoBehaviour:
       Entry: 1
       Data: 6|6
     - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
       Entry: 6
       Data: 
     - Name: 
       Entry: 6
       Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 10
-      Data: 0
     - Name: 
       Entry: 10
       Data: 0
@@ -86,8 +65,26 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: 
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 10
       Data: 0
@@ -104,14 +101,17 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
       Entry: 10
       Data: 0
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
     - Name: 
       Entry: 6
       Data: 
@@ -145,5 +145,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  result: {fileID: 11400000, guid: fc78ac5c67f146243ad12fb839bb520a, type: 2}
+  result: {fileID: 11400000, guid: a8c1c422c502d4f44be70e4b0f2a5361, type: 2}
   amount: 1
