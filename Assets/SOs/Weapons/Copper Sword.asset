@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: da420e72ac9132c49ad4c8b9f2d0d15e, type: 3}
   pos: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0}
-  scale: {x: 1, y: 1, z: 1}
-  points: 9
+  scale: {x: 0.01, y: 0.01, z: 0.01}
+  points: 18
   prefab: {fileID: 3891548729294223961, guid: 3bbe385160442264188f67056bb12f4d, type: 3}
   index: 4

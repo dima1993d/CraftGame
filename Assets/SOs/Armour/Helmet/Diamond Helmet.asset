@@ -16,6 +16,6 @@ MonoBehaviour:
   pos: {x: 0, y: 0.00027, z: -0.00012}
   rot: {x: 12.237, y: 179.91, z: 0.508}
   scale: {x: 0.012528, y: 0.012528, z: 0.012528}
-  points: 30
+  points: 50
   prefab: {fileID: 6801102751782262331, guid: f4ae3e272a0989449870223d4a364029, type: 3}
   index: 0

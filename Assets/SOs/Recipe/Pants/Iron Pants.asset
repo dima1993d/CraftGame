@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7132b8ad69e5c7049baa00727a8a5800, type: 3}
-  m_Name: Iron Helmet
+  m_Name: Iron Pants
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 8068f392356c5bd45b18a098d2c35cb0, type: 2}
-    - {fileID: 11400000, guid: 78105165b1f067145a23000330e03dad, type: 2}
+    - {fileID: 11400000, guid: eea54e2e74b07b045a9c2bb62515b4a1, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -33,8 +33,11 @@ MonoBehaviour:
       Entry: 1
       Data: 6|6
     - Name: 
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 0
     - Name: 
       Entry: 10
       Data: 0
@@ -47,18 +50,12 @@ MonoBehaviour:
     - Name: 
       Entry: 6
       Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 0
     - Name: 
       Entry: 10
       Data: 1
     - Name: 
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: 
       Entry: 6
       Data: 
@@ -78,8 +75,11 @@ MonoBehaviour:
       Entry: 10
       Data: 0
     - Name: 
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 0
     - Name: 
       Entry: 6
       Data: 
@@ -146,5 +146,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  result: {fileID: 11400000, guid: 302e4ae404358b746aab9704127e1a52, type: 2}
+  result: {fileID: 11400000, guid: 04aef5153b82a0a4d873418612fc5dd3, type: 2}
   amount: 1

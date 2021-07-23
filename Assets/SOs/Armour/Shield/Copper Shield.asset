@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2345856d5b07dc646bb9dc0430495d33, type: 3}
-  m_Name: Iron Helmet
+  m_Script: {fileID: 11500000, guid: b2e6e9f166d868545852127e630d4821, type: 3}
+  m_Name: Copper Shield
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: ac0531ff9ec7f3845a0413abc94ebdfa, type: 3}
+  sprite: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  rot: {x: 0, y: 180, z: 0}
+  rot: {x: 0, y: 0, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}
-  points: 30
-  prefab: {fileID: 7528663603908497198, guid: 1eb0f078187831b4486d4803016159a1, type: 3}
-  index: 0
+  points: 39
+  prefab: {fileID: 5599188939953208069, guid: f6d22ba26d8c65e45947971b3600e29a, type: 3}
+  index: 5
