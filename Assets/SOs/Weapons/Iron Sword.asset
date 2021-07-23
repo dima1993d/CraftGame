@@ -18,4 +18,4 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   points: 36
   prefab: {fileID: 6800468831689877861, guid: 688fcafe4000bda44bcc2bc72a60e809, type: 3}
-  index: 4
+  index: 0

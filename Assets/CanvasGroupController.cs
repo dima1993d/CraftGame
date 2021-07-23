@@ -22,10 +22,12 @@ public class CanvasGroupController : MonoBehaviour
         {
             canvasGroup.alpha = 1;
             canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
         }
         else
         {
             canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
 
             canvasGroup.alpha = 0;
         }

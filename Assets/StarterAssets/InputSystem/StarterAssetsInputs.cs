@@ -26,6 +26,7 @@ namespace StarterAssets
 			cursorLocked = var;
 			cursorInputForLook = var;
 			//Cursor.visible = var;
+			look = Vector2.zero;
 			SetCursorState(var);
 		}
         private void Start()
