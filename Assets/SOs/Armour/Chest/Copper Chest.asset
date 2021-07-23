@@ -17,5 +17,5 @@ MonoBehaviour:
   rot: {x: 0, y: 180, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   points: 39
-  prefab: {fileID: 1019218939699201180, guid: 9d716e44c54ad44458f7eddff1a78513, type: 3}
+  prefab: {fileID: 572697243274355704, guid: 0d06352345b2d28439e6cb2b004f0760, type: 3}
   index: 1
