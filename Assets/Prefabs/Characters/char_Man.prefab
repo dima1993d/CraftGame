@@ -115,6 +115,7 @@ MonoBehaviour:
   strength: 0
   currentTimeInTheDungeon: 0
   inDungeon: 0
+  resend: {fileID: 11400000, guid: 7fd8f51e91219ea4ca53e91a60da3002, type: 2}
 --- !u!114 &313825532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _to: {fileID: 0}
   _Player: {fileID: 0}
-  _walkSpeed: 4
+  _walkSpeed: 20
   _animator: {fileID: 0}
   IDLE: Stop
   WALKING: Run

@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class NPC_Manager : MonoBehaviour
 {
+    
     public List<InventoryOfNPC> inventoryOfNPCs = new List<InventoryOfNPC>();
+    public List<ItemSlot> itemSlots = new List<ItemSlot>();
     public GameObject currentNPC;
     public GameObject NPCprefab;
     public Transform SpawnPosition;
@@ -91,8 +93,45 @@ public class NPC_Manager : MonoBehaviour
         currentNPC.SetActive(false);
         currentNPC.transform.position = SpawnPosition.position;
         //currentNPC.GetComponent<Animation>()._to = shop;
-        SpawnNPC();
         GetResources(currentInventory.strength);
+        SpawnNPC();
+    }
+
+    private void ClearSlots()
+    {
+        for (int i = 0; i < itemSlots.Count; i++)
+        {
+            itemSlots[i].ClearSlot();
+        }
+    } 
+    private void SetSlots(InventoryOfNPC inventoryOfNPC)
+    {
+        for (int i = 0; i < itemSlots.Count; i++)
+        {
+            if (i <= 3)
+            {
+                if (inventoryOfNPC.armours[i])
+                {
+                    itemSlots[i].UpdateItemSlot(inventoryOfNPC.armours[i], 1);
+                }
+                else
+                {
+                    itemSlots[i].ClearSlot();
+                }
+            }
+            if (i > 3)
+            {
+                if (inventoryOfNPC.weapons[i-4])
+                {
+                    itemSlots[i].UpdateItemSlot(inventoryOfNPC.weapons[i-4], 1);
+                }
+                else 
+                {
+                    itemSlots[i].ClearSlot();
+                }
+            }
+
+        }
     }
 
     public void SpawnNPC()
@@ -102,6 +141,7 @@ public class NPC_Manager : MonoBehaviour
             currentNPC = Instantiate(NPCprefab, SpawnPosition);
             currentInventory = currentNPC.GetComponent<InventoryOfNPC>();
             inventoryOfNPCs.Add(currentInventory);
+            ui.inventory.AddItem(ui.allItems[1], 5);
         }
         else
         {
@@ -110,6 +150,7 @@ public class NPC_Manager : MonoBehaviour
             currentInventory = q[0];
             q.RemoveAt(0);
         }
+        SetSlots(currentInventory);
         Animation anim = currentNPC.GetComponent<Animation>();
         anim._to = shop;
         anim._Player = Player;

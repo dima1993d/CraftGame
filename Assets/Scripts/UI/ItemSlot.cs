@@ -30,7 +30,8 @@ namespace CraftGame.UI
             Sword,
             Shield,
             Ore,
-            Fuel
+            Fuel,
+            Result
         }
 
         void Awake()
@@ -38,6 +39,17 @@ namespace CraftGame.UI
             rectTransform = GetComponent<RectTransform>();
             itemIcon = transform.GetChild(0).GetComponent<Image>();
             itemNumberText = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        }
+        public void ResetSlot()
+        {
+            if (item != null)
+            {
+                UpdateItemSlot(item, number);
+            }
+        }
+        public void ClearSlot()
+        {
+            UpdateItemSlot(null, 0, false);
         }
         public void UpdateItemSlot(IItem item,int number)
         {
@@ -71,7 +83,19 @@ namespace CraftGame.UI
             }
             
         }
-
+        bool IsSingleSlot(SlotType slotType)
+        {
+            if (slotType == SlotType.Helmet ||
+            slotType == SlotType.Chest ||
+            slotType == SlotType.Leggins ||
+            slotType == SlotType.Boots ||
+            slotType == SlotType.Sword ||
+            slotType == SlotType.Shield)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -80,7 +104,7 @@ namespace CraftGame.UI
             {
                 string st = SlotType.GetName(typeof(SlotType), slotType);
                 Type t2 = currentDragedItem.item.GetType();
-                if (!t2.ToString().Contains(st))
+                if ((!t2.ToString().Contains(st) && slotType != SlotType.Result) || (IsSingleSlot(slotType) && number > 0))
                 {
                     Debug.Log("" + st);
                     Debug.Log("" + t2.ToString());
@@ -99,16 +123,39 @@ namespace CraftGame.UI
                 }
                 if (currentDragedItem.item != null && item == null) //Set Item
                 {
-                    UpdateItemSlot(currentDragedItem.item, currentDragedItem.number);
-                    currentDragedItem.item = null;
-                    currentDragedItem.number = 0;
+                    if (IsSingleSlot(slotType))
+                    {
+                        UpdateItemSlot(currentDragedItem.item, 1);
+                        currentDragedItem.number--;
+                        if (currentDragedItem.number == 0)
+                        {
+                            currentDragedItem.item = null;
+                        }
+                    }
+                    else
+                    {
+                        UpdateItemSlot(currentDragedItem.item, currentDragedItem.number);
+                        currentDragedItem.item = null;
+                        currentDragedItem.number = 0;
+                    }
+                    
                     return;
                 }
                 if (currentDragedItem.item != null && item != null && currentDragedItem.item == item) //Add Items
                 {
-                    UpdateItemSlot(item, number + currentDragedItem.number);
-                    currentDragedItem.item = null;
-                    currentDragedItem.number = 0;
+                    if (slotType == SlotType.Result)
+                    {
+                        currentDragedItem.item = item;
+                        currentDragedItem.number += number;
+                        UpdateItemSlot(null, 0);
+                    }
+                    else
+                    {
+                        UpdateItemSlot(item, number + currentDragedItem.number);
+                        currentDragedItem.item = null;
+                        currentDragedItem.number = 0;
+                    }
+                    
                     return;
                 }
                 if (currentDragedItem.item != null && item != null && currentDragedItem.item != item) //Swap Items

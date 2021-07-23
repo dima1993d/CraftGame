@@ -11,6 +11,7 @@ public class InventoryOfNPC : MonoBehaviour
     public int strength = 0;
     public int currentTimeInTheDungeon = 0;
     public bool inDungeon = false;
+    public BoolGameAction resend;
     public void SpawnWeapon(IItem item)
     {
         WeaponSO weapon = (WeaponSO)item;
@@ -21,11 +22,7 @@ public class InventoryOfNPC : MonoBehaviour
         }
         if (weapon == null)
         {
-            if (itemPrefabInstances[weapon.index] != null)
-            {
-                Destroy(itemPrefabInstances[weapon.index]);
-            }
-
+            ResetOutfit();
         }
     }
     public void SpawnArmour(IItem item)
@@ -42,17 +39,21 @@ public class InventoryOfNPC : MonoBehaviour
         }
         if (armour == null)
         {
-            if (armour.index == 3 && itemPrefabInstances[6] != null)//if boots
-            {
-                Destroy(itemPrefabInstances[6]);
-            }
-            if (itemPrefabInstances[armour.index] != null)
-            {
-                Destroy(itemPrefabInstances[armour.index]);
-            }
-            
+            ResetOutfit();
         }
         
+    }
+
+    public void ResetOutfit()
+    {
+        for (int i = 0; i < itemPrefabInstances.Length; i++)
+        {
+            if (itemPrefabInstances[i])
+            {
+                Destroy(itemPrefabInstances[i]);
+            }      
+        }
+        resend.InvokeAction(true);
     }
     public void SpawnItem(int boneIndex, GameObject prefab, Vector3 pos, Vector3 rot, Vector3 scale)
     {
