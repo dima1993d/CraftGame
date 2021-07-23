@@ -9,7 +9,8 @@ using System;
 
 public class Animation : MonoBehaviour
 {
-    [SerializeField] private Transform _to;
+    public Transform _to;
+    public Transform _Player;
     [SerializeField] private float _walkSpeed = 0.1f;
 
     private Animator _animator;
@@ -20,13 +21,13 @@ public class Animation : MonoBehaviour
     //private bool IsWalking => !IsAtForge;
 
     //Animation states
-    const string IDLE = "Idle";
-    const string WALKING = "Walking";
+    public string IDLE = "Stop";
+    public string WALKING = "Run";
 
     // bool to send an NPC to fight 
     public bool Trigger = Input.GetMouseButtonDown(0);
     //default
-    private string _currentState = WALKING;
+    private string _currentState;
 
     private void Start()
     {
@@ -37,11 +38,7 @@ public class Animation : MonoBehaviour
 
     private void ChangeAnimationState(string newState)
     {
-        if (_currentState == newState)
-            return;
-
         _animator.SetTrigger(newState);
-        _currentState = newState;
     }
 
     public void SetDestination(Transform to)
@@ -51,17 +48,25 @@ public class Animation : MonoBehaviour
 
     private  void Update()
     {
-        if (Vector3.Distance(transform.position, _to.position) > 0.1F)
+        Debug.Log(Vector3.Distance(transform.position, _to.position));
+        if (Vector3.Distance(transform.position, _to.position) < 0.1F)
         {
-            transform.LookAt(_to);
+            //transform.LookAt(_to);
+            Vector3 difference = _to.position - transform.position;
+            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
             ChangeAnimationState(WALKING);
 
-            _rb.MovePosition((transform.position - _to.position) * _walkSpeed * Time.deltaTime);
+            _rb.MovePosition((transform.position - _to.position).normalized * _walkSpeed * Time.deltaTime);
         }
         else
         {
             _rb.MovePosition(_to.position);
             ChangeAnimationState(IDLE);
+
+            Vector3 difference = _Player.position - transform.position;
+            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         }
     }
 
