@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c44db720f8796ec4cabbee753e56cdbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 85f4c60ac8f82af458445629898998bc, type: 3}
   m_Name: Sticks
   m_EditorClassIdentifier: 
-  number: 0
   sprite: {fileID: 21300000, guid: da420e72ac9132c49ad4c8b9f2d0d15e, type: 3}
+  burnTime: 1

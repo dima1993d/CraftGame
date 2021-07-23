@@ -146,5 +146,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  result: {fileID: 11400000, guid: ab2fadb88abc36c4681c469831cc69d4, type: 2}
+  result: {fileID: 11400000, guid: a0413af765b339448be732329ab8634d, type: 2}
   amount: 1

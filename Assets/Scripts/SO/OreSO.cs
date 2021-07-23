@@ -7,7 +7,7 @@ namespace CraftGame.SO
     public class OreSO : IItem
     {
         public IngredientSO meltsInTo;
-
+        public int needTimeToMelt = 1;
     }
 }
 
