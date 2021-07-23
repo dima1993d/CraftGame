@@ -18,6 +18,12 @@ ModelImporter:
   - first:
       74: -8369082071745308883
     second: rig_man|anim_Walk
+  - first:
+      74: 5981222955340036577
+    second: mesh_man_beard|anim_Walk
+  - first:
+      74: 3373135777074218788
+    second: rig_man|anim_Walk.001
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -65,9 +71,9 @@ ModelImporter:
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
