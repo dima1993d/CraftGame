@@ -11,7 +11,7 @@ public class Animation : MonoBehaviour
 {
     public Transform _to;
     public Transform _Player;
-    [SerializeField] private float _walkSpeed = 0.1f;
+    [SerializeField] private float _walkSpeed = 20f;
 
     public Animator _animator;
     private Rigidbody _rb;

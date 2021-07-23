@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _to: {fileID: 0}
   _Player: {fileID: 0}
-  _walkSpeed: 20
+  _walkSpeed: 40
   _animator: {fileID: 0}
   IDLE: Stop
   WALKING: Run

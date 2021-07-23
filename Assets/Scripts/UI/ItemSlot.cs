@@ -121,7 +121,7 @@ namespace CraftGame.UI
                     UpdateItemSlot(null,0);
                     return;
                 }
-                if (currentDragedItem.item != null && item == null) //Set Item
+                if (currentDragedItem.item != null && item == null && slotType != SlotType.Result) //Set Item
                 {
                     if (IsSingleSlot(slotType))
                     {
