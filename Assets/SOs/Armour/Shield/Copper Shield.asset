@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e6e9f166d868545852127e630d4821, type: 3}
   m_Name: Copper Shield
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6cf4bdaae72e3344594120caf0f0dede, type: 3}
   pos: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}

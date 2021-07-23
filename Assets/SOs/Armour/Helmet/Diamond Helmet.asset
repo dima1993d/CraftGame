@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2345856d5b07dc646bb9dc0430495d33, type: 3}
   m_Name: Diamond Helmet
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: ac0531ff9ec7f3845a0413abc94ebdfa, type: 3}
+  sprite: {fileID: 21300000, guid: 6edbe3e54b09cce4899b4ee198c151e9, type: 3}
   pos: {x: 0, y: 0.00027, z: -0.00012}
   rot: {x: 12.237, y: 179.91, z: 0.508}
   scale: {x: 0.012528, y: 0.012528, z: 0.012528}
