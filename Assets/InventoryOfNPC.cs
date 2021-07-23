@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryOfNPC : MonoBehaviour
 {
     public List<Transform> bones = new List<Transform>();
-    public GameObject[] itemPrefabInstances = new GameObject[6];
+    public GameObject[] itemPrefabInstances = new GameObject[7];
     public ArmourSO[] armours = new ArmourSO[4];
     public WeaponSO[] weapons = new WeaponSO[2];
     public int strength = 0;
@@ -19,7 +19,14 @@ public class InventoryOfNPC : MonoBehaviour
             weapons[weapon.index] = weapon;
             SpawnItem(weapon.index + 4, weapon.prefab, weapon.pos, weapon.rot, weapon.scale);
         }
-        
+        if (weapon == null)
+        {
+            if (itemPrefabInstances[weapon.index] != null)
+            {
+                Destroy(itemPrefabInstances[weapon.index]);
+            }
+
+        }
     }
     public void SpawnArmour(IItem item)
     {
@@ -28,6 +35,22 @@ public class InventoryOfNPC : MonoBehaviour
         {
             armours[armour.index] = armour;
             SpawnItem(armour.index, armour.prefab, armour.pos, armour.rot, armour.scale);
+            if (armour.index == 3)//if boots mirror prefab
+            {
+                SpawnItem(6, armour.prefab, armour.pos, armour.rot, new Vector3(-armour.scale.x, armour.scale.y, armour.scale.z) ); //mirror boot
+            }
+        }
+        if (armour == null)
+        {
+            if (armour.index == 3 && itemPrefabInstances[6] != null)//if boots
+            {
+                Destroy(itemPrefabInstances[6]);
+            }
+            if (itemPrefabInstances[armour.index] != null)
+            {
+                Destroy(itemPrefabInstances[armour.index]);
+            }
+            
         }
         
     }

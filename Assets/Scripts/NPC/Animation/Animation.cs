@@ -58,7 +58,7 @@ public class Animation : MonoBehaviour
             //transform.rotation = Quaternion.Euler(0.0f, rotationZ, 0.0f);
 
             transform.LookAt(_to.position);
-            transform.rotation = Quaternion.Euler(0.0f, transform.rotation.y, 0.0f);
+            transform.rotation = Quaternion.Euler(0.0f, transform.rotation.y + 180, 0.0f);
             //ChangeAnimationState(WALKING);
             //_rb.position();
             _rb.MovePosition(transform.position + ( _to.position - transform.position).normalized * _walkSpeed * Time.deltaTime);

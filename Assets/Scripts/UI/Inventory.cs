@@ -14,12 +14,12 @@ namespace CraftGame.UI
 
         [BoxGroup("ItemSlot table")]
         [TableMatrix(DrawElementMethod = "DrawColoredEnumElement", SquareCells = true)]
-        public ItemSlot[,] itemSlots = new ItemSlot[9, 3];
+        public ItemSlot[,] itemSlots = new ItemSlot[5, 2];
 
         [Button]
         public void SetupSlots()
         {
-            itemSlots = new ItemSlot[9, 3];
+            itemSlots = new ItemSlot[5, 2];
             int index = 0;
             for (int x = 0; x < itemSlots.GetLength(1); x++)
             {
