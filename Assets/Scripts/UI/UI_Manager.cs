@@ -155,6 +155,7 @@ namespace CraftGame.UI
         public List<ItemDataList> inventory = new List<ItemDataList>();
         public List<ItemDataList> crafting = new List<ItemDataList>();
         public List<ItemDataList> npc = new List<ItemDataList>();
+
     }
     [Serializable]
     public class ItemData

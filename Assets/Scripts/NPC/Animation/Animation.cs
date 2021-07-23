@@ -9,16 +9,15 @@ using System;
 
 public class Animation : MonoBehaviour
 {
-    [SerializeField] private Transform _idleTransformPoint;
-    [SerializeField] private Transform _fightTransformPoint;
-    [SerializeField] private float _walkSpeed = 1f;
+    [SerializeField] private Transform _to;
+    [SerializeField] private float _walkSpeed = 0.1f;
 
     private Animator _animator;
     private Rigidbody _rb;
 
     //To check for changing _currentState
-    private bool IsAtForge => transform.position == _idleTransformPoint.position;
-    private bool IsWalking => !IsAtForge;
+    //private bool IsAtForge => transform.position == _idleTransformPoint.position;
+    //private bool IsWalking => !IsAtForge;
 
     //Animation states
     const string IDLE = "Idle";
@@ -28,7 +27,6 @@ public class Animation : MonoBehaviour
     public bool Trigger = Input.GetMouseButtonDown(0);
     //default
     private string _currentState = WALKING;
-    private float _lerpValue;
 
     private void Start()
     {
@@ -42,26 +40,28 @@ public class Animation : MonoBehaviour
         if (_currentState == newState)
             return;
 
-        _animator.Play(newState);
+        _animator.SetTrigger(newState);
         _currentState = newState;
+    }
+
+    public void SetDestination(Transform to)
+    {
+
     }
 
     private  void Update()
     {
-        if (IsAtForge)
+        if (Vector3.Distance(transform.position, _to.position) > 0.1F)
         {
-            ChangeAnimationState(IDLE);
-        }
-        else if (Trigger)
-        {
-            transform.LookAt(_fightTransformPoint);
+            transform.LookAt(_to);
             ChangeAnimationState(WALKING);
 
-            if (_lerpValue > 1)
-                return;
-
-            _rb.transform.position = Vector3.Lerp(_idleTransformPoint.position, _fightTransformPoint.position, _lerpValue += Time.deltaTime / 4);
-
+            _rb.MovePosition((transform.position - _to.position) * _walkSpeed * Time.deltaTime);
+        }
+        else
+        {
+            _rb.MovePosition(_to.position);
+            ChangeAnimationState(IDLE);
         }
     }
 
