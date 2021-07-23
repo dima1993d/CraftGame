@@ -55,7 +55,10 @@ public class Animation : MonoBehaviour
             //transform.LookAt(_to);
             Vector3 difference = _to.position - transform.position;
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            //transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+            //transform.rotation = Quaternion.Euler(0.0f, rotationZ, 0.0f);
+
+            transform.LookAt(_to.position);
+            transform.rotation = Quaternion.Euler(0.0f, transform.rotation.y, 0.0f);
             //ChangeAnimationState(WALKING);
             //_rb.position();
             _rb.MovePosition(transform.position + ( _to.position - transform.position).normalized * _walkSpeed * Time.deltaTime);
@@ -68,7 +71,7 @@ public class Animation : MonoBehaviour
 
             Vector3 difference = _Player.position - _Player.position;
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0.0f, rotationZ, 0.0f);
+            transform.rotation = Quaternion.Euler(0.0f, rotationZ - 90, 0.0f);
         }
     }
 

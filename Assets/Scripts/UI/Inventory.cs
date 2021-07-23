@@ -56,6 +56,11 @@ namespace CraftGame.UI
             {
                 for (int y = 0; y < itemSlots.GetLength(1); y++)
                 {
+                    if (itemSlots[x, y].item == item)
+                    {
+                        itemSlots[x, y].UpdateItemSlot(item, itemSlots[x, y].number + amount);
+                        return;
+                    }
                     if (itemSlots[x, y].item == null)
                     {
                         itemSlots[x, y].UpdateItemSlot(item, amount);

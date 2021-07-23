@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Diamond Boots
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: a93b584a25439f74dbab2f16bdd18654, type: 3}
-  pos: {x: 0, y: 0, z: 0}
-  rot: {x: 0, y: 0, z: 0}
+  pos: {x: 0.001, y: 0.0001, z: 0.0001}
+  rot: {x: -90, y: 0, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   points: 80
-  prefab: {fileID: 7219538657688162473, guid: 71c97e6e34f28814ab72c7805e4012e2, type: 3}
+  prefab: {fileID: 1871534173091484087, guid: 3d0a19e6e8a868b459719b75d9ec356a, type: 3}
   index: 3

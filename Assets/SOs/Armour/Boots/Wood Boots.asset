@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wood Boots
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 29b8299791aa0ac439e8e24d4f302fb3, type: 3}
-  pos: {x: 0, y: 0, z: 0}
-  rot: {x: 0, y: 0, z: 0}
+  pos: {x: 0.001, y: 0, z: 0.0012}
+  rot: {x: 90, y: 180, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   points: 8
   prefab: {fileID: 7219538657688162473, guid: 71c97e6e34f28814ab72c7805e4012e2, type: 3}

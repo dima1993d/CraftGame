@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Iron Pants
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 256c497c8fa6e494fabfb87746a3098b, type: 3}
-  pos: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: -0.008, z: 0}
   rot: {x: 0, y: 180, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   points: 60

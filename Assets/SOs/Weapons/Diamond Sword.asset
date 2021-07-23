@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Diamond Sword
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 6f1c45f2f3ce1334c91cd93f6ff7eecf, type: 3}
-  pos: {x: 0, y: 0, z: 0}
-  rot: {x: 0, y: 0, z: 0}
-  scale: {x: 1, y: 1, z: 1}
+  pos: {x: 0, y: 0.0005, z: 0}
+  rot: {x: 0, y: 90, z: 90}
+  scale: {x: 0.01, y: 0.01, z: 0.01}
   points: 60
   prefab: {fileID: 4970962759926985274, guid: 9b9161b16c993dc4594677c799e112f6, type: 3}
   index: 0

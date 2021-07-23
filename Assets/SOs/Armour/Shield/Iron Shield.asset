@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Iron Shield
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 6bf22420cd980374298e3b6cf9165af7, type: 3}
-  pos: {x: 0, y: 0, z: 0}
-  rot: {x: 0, y: 0, z: 0}
-  scale: {x: 0.01, y: 0.01, z: 0.01}
+  pos: {x: 0, y: -0.001, z: 0}
+  rot: {x: 0, y: 180, z: 0}
+  scale: {x: 0.015, y: 0.015, z: 0.015}
   points: 78
   prefab: {fileID: 2426023372579166716, guid: 91fc0302ed1d95a42b3b770f53378c47, type: 3}
   index: 1

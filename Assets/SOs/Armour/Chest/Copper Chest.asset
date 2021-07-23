@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Copper Chest
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 6dd2ceed49e4038469028d2938089ef7, type: 3}
-  pos: {x: 0, y: -0.00831, z: 0}
+  pos: {x: 0, y: -0.0108, z: 0.0001}
   rot: {x: 0, y: 180, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   points: 39
