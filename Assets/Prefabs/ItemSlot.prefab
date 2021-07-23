@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -95,8 +95,8 @@ MonoBehaviour:
   currentDragedItem: {fileID: 11400000, guid: 93cc2651b7bb33b4e84e4a069e7dedce, type: 2}
   itemIcon: {fileID: 0}
   itemNumberText: {fileID: 0}
-  UpdateUI: {fileID: 0}
-  slotType: 0
+  UpdateUI: {fileID: 11400000, guid: 3076edde146c2004cba83b663100a859, type: 2}
+  slotType: 1
 --- !u!1001 &2019169000451226541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,11 +142,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4417465695379348038, guid: d40b016d01cec98449790f8556ab7339, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 4417465695379348038, guid: d40b016d01cec98449790f8556ab7339, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 4417465695379348038, guid: d40b016d01cec98449790f8556ab7339, type: 3}
       propertyPath: m_LocalPosition.x

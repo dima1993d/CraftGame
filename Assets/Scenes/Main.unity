@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 7c3e748c6fd4ebd419a72c28f5dfb24e, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 3b3f7400d3526e9429c39d03afb714b3, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -13176,6 +13176,14 @@ PrefabInstance:
       propertyPath: lengthInSec
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4096993958741303760, guid: a890d7e721793ad489977973552ef295, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 127.55899
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096993958741303760, guid: a890d7e721793ad489977973552ef295, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 45.354004
+      objectReference: {fileID: 0}
     - target: {fileID: 5197446029065478221, guid: a890d7e721793ad489977973552ef295, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -13894,6 +13902,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3682118134332161665, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_Dithering
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682118134332161665, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_Antialiasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682118134332161665, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_RootOrder
       value: 0
