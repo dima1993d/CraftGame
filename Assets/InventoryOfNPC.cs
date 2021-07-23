@@ -17,7 +17,7 @@ public class InventoryOfNPC : MonoBehaviour
         if (weapon && weapon.prefab)
         {
             weapons[weapon.index] = weapon;
-            SpawnItem(weapon.index, weapon.prefab, weapon.pos, weapon.rot, weapon.scale);
+            SpawnItem(weapon.index + 4, weapon.prefab, weapon.pos, weapon.rot, weapon.scale);
         }
         
     }

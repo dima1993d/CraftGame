@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wood Chest
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 0f016daf87f621c4c8c038997c64a9c5, type: 3}
-  pos: {x: 0, y: -0.00831, z: 0}
+  pos: {x: 0, y: -0.006, z: 0}
   rot: {x: 0, y: 180, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   points: 13

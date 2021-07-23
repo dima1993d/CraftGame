@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Iron Boots
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 64bdfcedcbcc1dd46be23f3527144ce7, type: 3}
-  pos: {x: 0, y: 0, z: 0}
-  rot: {x: 0, y: 0, z: 0}
+  pos: {x: 0.001, y: 0, z: 0}
+  rot: {x: 90, y: 180, z: 0}
   scale: {x: 0.01, y: 0.01, z: 0.01}
   points: 48
   prefab: {fileID: 9183621092407680037, guid: bc0790d1ebb1a944ab3f4dd4d4bed835, type: 3}

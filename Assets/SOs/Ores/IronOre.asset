@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: e822bd08975c61041860a7b263ebf245, type: 3}
   meltsInTo: {fileID: 11400000, guid: 8068f392356c5bd45b18a098d2c35cb0, type: 2}
+  needTimeToMelt: 1

@@ -1,3 +1,4 @@
+using CraftGame.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,15 @@ public class NPC_Manager : MonoBehaviour
     public GameObject NPCprefab;
     public Transform SpawnPosition;
     public InventoryOfNPC currentInventory;
-    public GameObject spritePrefab;
-    public GameObject spritePrefabHolder;
+    //public GameObject spritePrefab;
+    //public GameObject spritePrefabHolder;
     public List<Button> buttons;
     public int maximumTime = 300;
-
-
+    public List<InventoryOfNPC> q;
+    public Transform NextPoint;
+    public Transform shop;
+    public Transform Player;
+    public UI_Manager ui;
     public Sprite dead;
     void Start()
     {
@@ -27,22 +31,25 @@ public class NPC_Manager : MonoBehaviour
     {
         for (int i = 0; i < inventoryOfNPCs.Count; i++)
         {
-            if (buttons.Count < inventoryOfNPCs.Count)
-            {
-                GameObject spriteInstance = Instantiate(spritePrefab, spritePrefabHolder.transform);
-                buttons.Add(spriteInstance.GetComponent<Button>());
-            }
+
+            //if (buttons.Count < inventoryOfNPCs.Count)
+            //{
+                //GameObject spriteInstance = Instantiate(spritePrefab, spritePrefabHolder.transform);
+                //buttons.Add(spriteInstance.GetComponent<Button>());
+            //}
             if (inventoryOfNPCs[i].inDungeon)
             {
                 if (inventoryOfNPCs[i].currentTimeInTheDungeon < inventoryOfNPCs[i].strength * 60)
                 {
                     inventoryOfNPCs[i].currentTimeInTheDungeon++;
-                    SetSpritePos(i,inventoryOfNPCs[i].currentTimeInTheDungeon);
+                    //SetSpritePos(i,inventoryOfNPCs[i].currentTimeInTheDungeon);
                 }
                 else
                 {
-                    SetSpriteDead(i);
-                    KillNPC(inventoryOfNPCs[i]);
+                    inventoryOfNPCs[i].inDungeon = false;
+                    q.Add(inventoryOfNPCs[i]);
+                    //SetSpriteDead(i);
+                    //KillNPC(inventoryOfNPCs[i]);
                 }
             }
             else
@@ -68,18 +75,66 @@ public class NPC_Manager : MonoBehaviour
         inventoryOfNPCs.Remove(inventoryOfNPC);
         Destroy(inventoryOfNPC.gameObject);
     }
-
-    void SpawnNPC()
+    public void SendOff()
     {
+        Animation anim = currentNPC.GetComponent<Animation>();
+        anim._to = NextPoint;
+        anim.ChangeAnimationState("Run");
 
-        currentNPC = Instantiate(NPCprefab, SpawnPosition);
-        currentInventory = currentNPC.GetComponent<InventoryOfNPC>();
-        currentInventory = inventoryOfNPCs[0];
+
+    }
+    public void DisableNPC()
+    {
+        //Debug.Log("ddd");
+        currentInventory.inDungeon = true;
+        currentInventory.currentTimeInTheDungeon = 0;
+        currentNPC.SetActive(false);
+        currentNPC.transform.position = SpawnPosition.position;
+        //currentNPC.GetComponent<Animation>()._to = shop;
+        SpawnNPC();
+        GetResources(currentInventory.strength);
+    }
+
+    public void SpawnNPC()
+    {
+        if (q.Count == 0)
+        {
+            currentNPC = Instantiate(NPCprefab, SpawnPosition);
+            currentInventory = currentNPC.GetComponent<InventoryOfNPC>();
+            inventoryOfNPCs.Add(currentInventory);
+        }
+        else
+        {
+            q[0].gameObject.SetActive(true);
+            currentNPC = q[0].gameObject;
+            currentInventory = q[0];
+            q.RemoveAt(0);
+        }
+        Animation anim = currentNPC.GetComponent<Animation>();
+        anim._to = shop;
+        anim._Player = Player;
 
     }
     public void GetResources(int pos)
     {
-        //int diamond = 
+        int rand = Random.Range(0,4);
+        switch (rand)
+        {
+            case 0:
+                ui.inventory.AddItem(ui.allItems[1], pos);
+                break;
+            case 1:
+                ui.inventory.AddItem(ui.allItems[5], (int)((float)pos / 2));
+                break;
+            case 2:
+                ui.inventory.AddItem(ui.allItems[7], (int)((float)pos / 5));
+                break;
+            case 3:
+                ui.inventory.AddItem(ui.allItems[9], (int)((float) pos / 20));
+                break;
+            default:
+                break;
+        }
     }
     public void ReturnNPC()
     {

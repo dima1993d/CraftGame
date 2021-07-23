@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db3470bcbe51484c8c56546e6891b8e, type: 3}
-  m_Name: CopperOre
+  m_Script: {fileID: 11500000, guid: ab8a7caf27d8fbc4bbab8d9cf857797c, type: 3}
+  m_Name: Send Off
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: f5f952eae64fff94d92b3d3995a69a96, type: 3}
-  meltsInTo: {fileID: 11400000, guid: cec7c46064d04ef4088c95b40348b89e, type: 2}
-  needTimeToMelt: 1
