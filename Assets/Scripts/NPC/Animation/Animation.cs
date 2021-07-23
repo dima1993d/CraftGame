@@ -36,7 +36,7 @@ public class Animation : MonoBehaviour
 
     }
 
-    private void ChangeAnimationState(string newState)
+    public void ChangeAnimationState(string newState)
     {
         _animator.SetTrigger(newState);
     }
@@ -51,7 +51,7 @@ public class Animation : MonoBehaviour
         
         if (Vector3.Distance(transform.position, _to.position) > 0.1F)
         {
-            Debug.Log(Vector3.Distance(transform.position, _to.position));
+            //Debug.Log(Vector3.Distance(transform.position, _to.position));
             //transform.LookAt(_to);
             Vector3 difference = _to.position - transform.position;
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
@@ -62,13 +62,13 @@ public class Animation : MonoBehaviour
         }
         else
         {
-            Debug.Log("gotto");
+            //Debug.Log("gotto");
             _rb.MovePosition(_to.position);
             ChangeAnimationState(IDLE);
 
-            Vector3 difference = _Player.position - transform.position;
+            Vector3 difference = _Player.position - _Player.position;
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            //transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+            transform.rotation = Quaternion.Euler(0.0f, rotationZ, 0.0f);
         }
     }
 
